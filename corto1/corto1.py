@@ -1,9 +1,9 @@
 #programa que encuentra la secuencia de collatz
 
-#fucnion que determina si un numero es para encontrar la secuencia
-
+#funcion para calcular la secuencia
 def encnum(numeros):
-    milista=[]
+    archivo=open("coorto.txt", "a")
+    milista=[numeros]
     while numeros != 1:
         if numeros % 2 == 0:
             numeros = numeros / 2
@@ -12,18 +12,14 @@ def encnum(numeros):
             numeros = (numeros * 3) + 1
             milista.extend([numeros])
     print(milista[:])
+    archivo.write(str(milista)+ "\n")
     if numeros == 1:
-        print("1")
+        archivo.close()
+        pass
 
-
-#contador para que evalue uno por uno, como el carnet termina en 613
 numero=1
 while(numero!=613):
     numero=numero+1
     encnum(numero)
 
-
-
-
-
-
+#encnum(4)
